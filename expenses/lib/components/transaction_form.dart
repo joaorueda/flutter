@@ -25,6 +25,16 @@ class _TransactionFormState extends State<TransactionForm> {
     widget.onSubmit(title, value);
   }
 
+  final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+    primary: Colors.white,
+    minimumSize: Size(88, 44),
+    padding: EdgeInsets.symmetric(horizontal: 16.0),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(2.0)),
+    ),
+    backgroundColor: Colors.blue,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -51,9 +61,9 @@ class _TransactionFormState extends State<TransactionForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FlatButton(
+                TextButton(
                   child: Text('Nova Transação'),
-                  textColor: Colors.purple,
+                  style: flatButtonStyle,
                   onPressed: _submitForm,
                 ),
               ],
