@@ -8,7 +8,19 @@ class MealItem extends StatelessWidget {
   MealItem(this.meal);
 
   void _selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(AppRoutes.MEAL_DETAIL, arguments: meal);
+    Navigator.of(context)
+        .pushNamed(
+      AppRoutes.MEAL_DETAIL,
+      arguments: meal,
+    )
+        //resultado da tela quando fechada ('pop()')
+        .then((result) {
+      if (result == null) {
+        print('sem resultado!');
+      } else {
+        print('O nome da refeição é $result');
+      }
+    });
   }
 
   @override
